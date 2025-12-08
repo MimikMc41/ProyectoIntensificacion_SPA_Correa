@@ -1,23 +1,31 @@
-PROYECTO DE INTENSIFICACIÓN - SPA DE RECETAS
-Objetivo: SPA (Single Page Application) con login y registro cuya funcionalidad será decidida en un próximo momento de evaluación.
+# Proyecto de Intensificación – SPA de Recetas
 
-Característica principales:
-- SPA sin recarga de página
-- 5 pantallas esenciales: Home, Registro, Login, Sección Privada y Logout.
+## Objetivo
+Desarrollar una **SPA (Single Page Application)** con sistema de login y registro.  
+La funcionalidad interna será definida en una próxima instancia de evaluación.
+
+---
+
+## Características principales
+- SPA sin recarga de página.
+- 5 pantallas esenciales: **Home, Registro, Login, Sección Privada y Logout**.
 - Validaciones en formularios de registro y login.
-- Uso de localStorage para usuarios y sesión.
-- Diseño responsivo, adaptaciones para pantalla de PC y móvil.
-- Modo oscuro y claro implementados.
+- Uso de **localStorage** para usuarios y sesión.
+- Diseño **responsivo**, adaptado para PC y dispositivos móviles.
+- Implementación de **modo oscuro y claro**.
 
-Herramientas utilizadas:
-- HTML5
-- CSS
-- JavaScript
-- Git y Github
-- Netlify o GitHub Pages (Por decidirse)
+---
 
-Autoría:
-María Cruz Correa
-4to Informático
-Colegio P-029 "Del Carmen"
-12/2025
+## Herramientas utilizadas
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **Git & GitHub**
+- **Netlify / GitHub Pages** (por decidirse)
+
+---
+
+## Autoría
+**María Cruz Correa**  
+4to Informático – Colegio P-029 *“Del Carmen”*  
+Diciembre 2025
