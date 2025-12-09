@@ -25,6 +25,12 @@ La funcionalidad interna será definida en una próxima instancia de evaluación
 
 ---
 
+## Estructura del Repositorio
+- design -> Contiene los bocetos, mockups y prototipos iniciales del proyecto.
+- docs -> Contiene documentación adicional sobre el desarollo del proyecto.
+
+---
+
 ## Autoría
 **María Cruz Correa**  
 4to Informático – Colegio P-029 *“Del Carmen”*  
