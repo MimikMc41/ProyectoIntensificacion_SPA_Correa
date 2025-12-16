@@ -11,7 +11,7 @@ function register() {
     const nickname = document.getElementById('nickname').value;
     const password = document.getElementById('password').value;
     const email = document.getElementById('email').value;
-    const policyAgreement = document.getElementById('policy-agreement').value
+    const policyAgreement = document.getElementById('policy-agreement').checked
 
     //Creo un array vacío para almacenar todos los errores que salten y luego mostrarlos de una. Es una variable local.
     let errores = []
@@ -48,19 +48,19 @@ function register() {
         errores.push("Error 4: Compruebe que la contraseña cumpla con lo solicitado.")
     }
 
-    if (policyAgreement) {
+    if (policyAgreement === false) {
         errores.push('Error 5: Debes aceptar las políticas de privacidad y condiciones de uso.')
     }
 
     // Se crea una varibale que guarda un objeto con los datos del usuario (variables anteriores) como atributos.
-    errores.forEach(error => { document.getElementById('errores-registro').innerHTML += `<p class="error">${error}<p/>` })
+    errores.forEach(error => { document.getElementById('errores-registro').innerHTML += `<p class="error">${error}</p>` })
 
-    //Detiene la función si encuentra erroes, borra la lista de errores para evitar que se impriman repetidos en un segundo intento.
-    if (errores != []) {
-        errores = []
+    //Detiene la función si encuentra errores.
+    if (errores.length > 0) {
         return
     }
 
+    //Si el array esta vacío (no hay errores) entonces...
     //Crea un obejto para gaurdar el usuario con los atributos de este.
     const user = {username, nickname, password, email};
 
@@ -68,8 +68,10 @@ function register() {
     usuarios.push(user);
 
     //Se reeescribe el localStorage, guardando el array actualizado en formato JSON legible y bajo le nombre 'usuarios'.
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    localStorage.setItem('usuarios', JSON.stringify(usuarios))
     mostrar('p-interna')
+    //Se incluye el mismo usuario creado como usuario activo, casi de la misma forma que en el login, epro aprovechando el obejto user creado.
+    localStorage.setItem("usuarioActivo", JSON.stringify(user))
 }
 
 /* Escucha el evento "onclick" del botón que envia el formulario de registro, evita que se recargue la página
