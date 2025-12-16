@@ -42,7 +42,7 @@
     <main>
 
         <!-- Inicio de la página, se muestra al entrar/recargar la página (clase "active"). Las demás clases tienen la clase hidden que les aplica display: none, es decir, las oculta completamente.-->
-        <section id="inicio" class="active">
+        <section id="pantalla-inicio" class="active">
             <img src="./assets/logo-principal-inicio.png" />
             <!-- Introducción a la página (Contenido a la derecha) -->
             <div id="mensaje-introductorio">
@@ -58,41 +58,44 @@
                     ¿Qué estás esperando?
                     Únete a la comunidad y comienza tu aventura en la cocina.
                 </p>
-                <button>Iniciar sesión</button>
+                <button onclick="mostrar('pantalla-inicio-sesion')">Iniciar sesión</button>
                 <p>
                     ¿No tienes una cuenta?
                 </p>
-                <button>Registrarse</button>
+                <button onclick="mostrar('pantalla-registro')">Registrarse</button>
             </div>
         </section>
 
         <!-- Pantalla de formulario de registro -->
-        <section id="registro" class="active hidden">
+        <section id="pantalla-registro" class="active hidden">
             <!-- El formulario se separa del fondo. -->
             <!-- Formualrio sin method ni action, lso datos no se gaurdan en un servidor si no en el localStorage con ayuda de JS. Por la misma razón los input carecen de un atributo name.-->
             <form id="form-registro">
                 <h1>Registrarse</h1>
                 <label for="username">Nombre y apellido</label>
-                <input id="username" type="text" placeholder="Tu nombre y apellido" required />
+                <input id="username" type="text" placeholder="Tu nombre y apellido"/>
 
                 <label for="nickname">Nickname (Apodo)</label>
-                <input id="nickname" type="text" placeholder="Tu apodo online" required />
+                <input id="nickname" type="text" placeholder="Tu apodo online"/>
 
-                <label for="password">Contraseña</label>
-                <input id="password" type="password" placeholder="Escribe una contraseña" required />
+                <label for="password">Contraseña (Debe tener una longitud de más de 6 caracteres y debe incluir al menos una letra minúscula, una letra mayúscula, un número y un símbolo)</label>
+                <input id="password" type="password" placeholder="Escribe una contraseña"/>
 
                 <label for="email">Correo electrónico</label>
-                <input id="email" type="email" placeholder="TuEmail@gmail.com" required />
+                <input id="email" type="email" placeholder="TuEmail@gmail.com"/>
 
-                <input id="policy-agreement" type="checkbox" required />
+                <input id="policy-agreement" type="checkbox"/>
                 <label for="policy-agreement">Acepto las políticas de privacidad y condiciones de uso.</label>
+
+                <!-- Div vacío para errores -->
+                <div id="errores-registro"></div>
 
                 <button type="submit">Registrarse</button>
             </form>
         </section>
 
         <!-- Pantalla de formulario de incio de sesión -->
-        <section id="inicio-sesion" class="active hidden">
+        <section id="pantalla-inicio-sesion" class="active hidden">
             <!-- Nuevamente el forms está separado del fondo de la página. -->
             <form>
                 <h1>Inicio de sesión</h1>
@@ -144,7 +147,8 @@
     </footer>
 
     <!-- Link al archivo JS -->
-    <script src="app.js"></script>
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/register.js"></script>
 </body>
 
 </html>

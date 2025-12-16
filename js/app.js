@@ -1,53 +1,35 @@
+// Función para ocultar y mostrar secciones
+export function mostrar(id) {
+  // Guarda todos los elementos con la clase active en una variablke constante llamada activePantallas
+  const activePantallas = document.querySelectorAll('.active');
 
-// Función formualrio register
-function register(){
-
-const username = document.getElementById('username').value;
-const email = document.getElementById('email').value;
-const password = document.getElementById('password').value;
-
-if (username === ""|| email === "" || password === "") {
-    alert('Debe completar todos los campos.');
-    return;
-}
-
-const user = {username, email, password};
-console.log('Usuario registrado:', user);
-let usuarios = obtenerUsuarios();
-usuarios.push(user);
-localStorage.setItem('usuarios', JSON.stringify(usuarios));
-}
-
-document.getElementById('form-registro').addEventListener('submit', function(event) {
-    event.preventDefault();
-    register();
-    mostrar('p-interna')
-}
-);
-
-
-// Función para obtener usuarios desde localStorage
-function obtenerUsuarios()
-{
-
-const usuarios = localStorage.getItem('usuarios')
-
-let usuariosArray = [];
-
-if (usuarios) {
-    usuariosArray = JSON.parse(usuarios);
-}
-console.log(usuariosArray);
-return usuariosArray;
-}
-
-// Función ocultar y mostrar secciones
-function mostrar(id) {
-  const vistas = document.querySelectorAll('.active');
-  
-  vistas.forEach(i => {
+  //Luego a cada elemento con dicha clase se le agrga la clase hidden. Esto a través de un bucle for en su forma simplificada.
+  activePantallas.forEach(i => {
     i.classList.add('hidden');
   });
 
+  /*Luego obtiene el argumento id que se le pasa (correspondiente al identificador de la pantalla que se queire mostrar)
+  y se quita la clase hidden, permitiendo que se muestre su contenido neuvamente.*/
   document.getElementById(id).classList.remove('hidden');
+}
+
+//Permite que se llamen funciones desde el index, convirtiendolas en objetos globales.
+window.mostrar = mostrar
+
+// Función para obtener usuarios desde localStorage
+export function obtenerUsuarios() {
+  //Se obtiene el JSON que gaurdamos anteriromente como 'usuarios' y lo guarda en una nueva variable local.
+  const usuarios = localStorage.getItem('usuarios')
+
+  //Crea un array para los ususarios
+  let usuariosArray = [];
+
+  //QVericiaque usuarios exista y no sea null op una cadena vacía.
+  if (usuarios) {
+    //Si es así, convierte a los string JSON en un objeto de JavaScript modificable.
+    usuariosArray = JSON.parse(usuarios);
+  }
+
+  //Retorna el array de objetos.
+  return usuariosArray;
 }
