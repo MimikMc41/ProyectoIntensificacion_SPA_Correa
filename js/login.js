@@ -47,6 +47,7 @@ function login() {
 
     //Se agrega un usaurio activo al local storage aprovechando el objeto que obtiene usuarioExistente
     localStorage.setItem("usuarioActivo", JSON.stringify(usuarioExistente))
+    console.log("Usuario encontrado:", usuarioExistente)
     
     //Si no encuentra errores entonces lleva a la pantalla interna:
     mostrar('p-interna')

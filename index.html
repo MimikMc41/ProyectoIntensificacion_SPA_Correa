@@ -25,14 +25,14 @@
         <!-- Botones y navegación -->
         <nav>
             <!-- Div con los botones disponibles solo en la página interna, ocultos por defecto -->
-            <div class="hidden">
+            <div id="nav-p-interna" class="hidden">
                 <!-- Formulario de búsqueda -->
                 <form action="" method="get">
                     <input type="text" placeholder="Buscar receta..." />
                     <button><img src="./assets/icono-lupa-botonBuscar.png" alt="Buscar" /></button>
                 </form>
-                <button>Inicio</button>
-                <button>Salir</button>
+                <button onclick="mostrar('p-interna')">Inicio</button>
+                <button onclick="mostrar('log-out')">Salir</button>
             </div>
             <button><img src="./assets/icono-sol-botonModo.png" alt="Modo claro" /></button>
         </nav>
@@ -120,7 +120,7 @@
                 <!-- Mensaje de bienvenida separado por spans para luego modificarlo por partes con JS. Si llegara a fallar tiene los siguientes valores por defecto. -->
                 <h1>
                     <span id="saludo-bienvenida">Bienvenido,</span>
-                    <span id="usuario-bienvenida">[Nickaname].</span>
+                    <span class="mensaje-nickname">[Nickaname].</span>
                 </h1>
                 <!-- El mensaje complentario también esta definido aleatoriamente y peude variar. -->
                 <h3 id="mensaje-bienvenida-complementario">¿Listo para empezar a cocinar?</h3>
@@ -135,7 +135,10 @@
 
         <!-- Pantalla log-out -->
         <section id="log-out" class="active hidden">
-            <h1>Mensaje log out</h1>
+            <h1 id="mensaje-confirmacion-logout">Cerraste sesión</h1>
+            <h2 id="mensaje-logout-complementario">Nos vemos pronto,</h2>
+            <h2 class="mensaje-nickname">[Nickname]</h2>
+            <p>Serás redirigido a la página de inicio en breve...</p>
         </section>
     </main>
 
@@ -151,7 +154,8 @@
     <script type="module" src="./js/app.js"></script>
     <script type="module" src="./js/register.js"></script>
     <script type="module" src="./js/login.js"></script>
-    <script type="molude" src="./js/p-interna.js"></script>
+    <script type="module" src="./js/p-interna.js"></script>
+    <script type="module" src="./js/logout.js"></script>
 </body>
 
 </html>

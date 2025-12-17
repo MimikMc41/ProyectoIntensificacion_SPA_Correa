@@ -1,3 +1,6 @@
+//Muestro los botones de navegacipón solo disponibles en la página interna.
+document.getElementById('nav-p-interna').classList.remove('hidden')
+
 //FUnción para el mensaje que cambai según la hora.
 function saludoHora() {
     /* Crea un objeto con una funcion constructora (Date) que toma la fecha y el horario del sistema.
@@ -23,8 +26,8 @@ function mostrarNickname() {
     const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"))
     //Si el ususario activo existe y teien un valor
     if (usuarioActivo) {
-        //El mensaje con el nickname se reemplaza por el valor de esta misma propiedad.
-        document.getElementById("usuario-bienvenida").textContent = usuarioActual.nickname
+        //Los mensajess con el nickname se reemplazan por el valor de esta misma propiedad.
+        document.querySelectorAll(".mensaje-nickname").forEach(el => { el.textContent = usuarioActivo.nickname })
     }
 }
 
@@ -37,4 +40,11 @@ function mensajeComplementarioAleatorio() {
     //Se imprime el mensaje elegido aleatoriamente en pantalla
     document.getElementById("mensaje-bienvenida-complementario").textContent = opciones[randomIndex]
 }
+
+//Se ecutan las funciones cuando la pantalla termina de cargarse
+window.addEventListener("DOMContentLoaded", () => {
+    saludoHora()
+    mensajeComplementarioAleatorio()
+    mostrarNickname()
+})
 
