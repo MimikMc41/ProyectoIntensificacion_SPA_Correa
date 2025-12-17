@@ -21,7 +21,7 @@
     <!-- Encabezado (Casi no cambia entre página excepto la aparicion y desaparición de algunos botones)-->
     <header>
         <!-- Logo en el encabezado -->
-        <img src="./assets/logo-principal-header.png" alt="Logo" id="logo-header" />
+        <img src="./assets/logo-principal-header.png" alt="Logo" id="logo-header"  onclick="mostrar('pantalla-inicio')" />
         <!-- Botones y navegación -->
         <nav>
             <!-- Div con los botones disponibles solo en la página interna, ocultos por defecto -->
@@ -32,9 +32,9 @@
                     <button><img src="./assets/icono-lupa-botonBuscar.png" alt="Buscar" /></button>
                 </form>
                 <button onclick="mostrar('p-interna')">Inicio</button>
-                <button onclick="mostrar('log-out')">Salir</button>
+                <button onclick="logout()">Salir</button>
             </div>
-            <button><img src="./assets/icono-sol-botonModo.png" alt="Modo claro" /></button>
+            <button onclick="themeMode()"><img src="./assets/icono-sol-botonModo.png" alt="Modo claro" /></button>
         </nav>
     </header>
 
@@ -43,7 +43,7 @@
 
         <!-- Inicio de la página, se muestra al entrar/recargar la página (clase "active"). Las demás clases tienen la clase hidden que les aplica display: none, es decir, las oculta completamente.-->
         <section id="pantalla-inicio" class="active">
-            <img src="./assets/logo-principal-inicio.png" />
+            <img src="./assets/logo-principal-inicio.png" class="logo" id="main-logo" />
             <!-- Introducción a la página (Contenido a la derecha) -->
             <div id="mensaje-introductorio">
                 <p>
@@ -84,13 +84,16 @@
                 <label for="email">Correo electrónico</label>
                 <input id="email" type="email" placeholder="TuEmail@gmail.com"/>
 
-                <input id="policy-agreement" type="checkbox"/>
-                <label for="policy-agreement">Acepto las políticas de privacidad y condiciones de uso.</label>
+                <div class="checkbox-container">
+                    <input id="policy-agreement" type="checkbox"/>
+                    <label for="policy-agreement">Acepto las políticas de privacidad y condiciones de uso.</label>
+                </div>
 
                 <!-- Div vacío para errores -->
                 <div id="errores-registro"></div>
 
                 <button type="submit">Registrarse</button>
+                <button onclick="mostrar('pantalla-inicio-sesion')" class="ya-tengo-cuenta">Ya tengo una cuenta</button>
             </form>
         </section>
 
@@ -109,6 +112,7 @@
                 <!-- Div para insertar errores al iniciar sesión -->
                 <div id="errores-login"></div>
                 <button type="submit">Inciar sesión</button>
+                <button onclick="mostrar('pantalla-registro')" class="ya-tengo-cuenta">No tengo una cuenta</button>
             </form>
         </section>
 
@@ -120,7 +124,7 @@
                 <!-- Mensaje de bienvenida separado por spans para luego modificarlo por partes con JS. Si llegara a fallar tiene los siguientes valores por defecto. -->
                 <h1>
                     <span id="saludo-bienvenida">Bienvenido,</span>
-                    <span class="mensaje-nickname">[Nickaname].</span>
+                    <span class="mensaje-nickname"></span>
                 </h1>
                 <!-- El mensaje complentario también esta definido aleatoriamente y peude variar. -->
                 <h3 id="mensaje-bienvenida-complementario">¿Listo para empezar a cocinar?</h3>
@@ -137,7 +141,7 @@
         <section id="log-out" class="active hidden">
             <h1 id="mensaje-confirmacion-logout">Cerraste sesión</h1>
             <h2 id="mensaje-logout-complementario">Nos vemos pronto,</h2>
-            <h2 class="mensaje-nickname">[Nickname]</h2>
+            <h2 class="mensaje-nickname" id="logout-nickname"></h2>
             <p>Serás redirigido a la página de inicio en breve...</p>
         </section>
     </main>

@@ -69,9 +69,11 @@ function register() {
 
     //Se reeescribe el localStorage, guardando el array actualizado en formato JSON legible y bajo le nombre 'usuarios'.
     localStorage.setItem('usuarios', JSON.stringify(usuarios))
+    document.getElementById('nav-p-interna').classList.remove('hidden');
     mostrar('p-interna')
     //Se incluye el mismo usuario creado como usuario activo, casi de la misma forma que en el login, epro aprovechando el obejto user creado.
     localStorage.setItem("usuarioActivo", JSON.stringify(user))
+
 }
 
 /* Escucha el evento "onclick" del botón que envia el formulario de registro, evita que se recargue la página

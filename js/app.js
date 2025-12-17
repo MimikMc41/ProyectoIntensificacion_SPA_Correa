@@ -33,3 +33,35 @@ export function obtenerUsuarios() {
   //Retorna el array de objetos.
   return usuariosArray;
 }
+
+// Verifica si hay un usuario activo al cargar la página y cambiar la interfaz del menú
+window.onload = function() {
+  //Verifica si hay un usuario activo en el localStorage al cargar la página
+  const usuarioActivo = localStorage.getItem("usuarioActivo");
+  //Si hay un usuario activo, muestra la pantalla interna
+  if (usuarioActivo) {
+    this.document.getElementById('nav-p-interna').classList.remove('hidden');
+    document.getElementById("mensaje-nickname").innerHTML = `${JSON.parse(usuarioActivo).nickname}`;
+  } else {
+    //Si no hay un usuario activo, muestra la pantalla de inicio
+    this.document.getElementById('nav-p-interna').classList.add('hidden');
+    mostrar('pantalla-inicio');
+  }
+}
+
+// modo oscuro
+let mode = 'claro'; // Valor inicial del modo
+function themeMode() {
+  const body = document.body;
+  const logo = document.getElementById('main-logo');
+  if (mode === 'claro') {
+    body.classList.add('dark-mode');
+    logo.src = './assets/logo-principal-inicio-blanco.png';
+    mode = 'oscuro';
+  } else {
+    body.classList.remove('dark-mode');
+    logo.src = './assets/logo-principal-inicio.png';
+    mode = 'claro'; 
+  }
+}
+window.themeMode = themeMode; // Permite que se llame desde el index.html
