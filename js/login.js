@@ -10,6 +10,7 @@ function login() {
     const password = document.getElementById('password-login').value
     //Cargamos los usuarios en el localStorage
     const usuarios = obtenerUsuarios()
+    console.log("")
     /*Definimos una variable que ejecuta la condicion a cada elemento del array y devuelve true si encuentra un resultaod y false si no encuentra ninguno.
     Verifica ambos usuario y contraseña por cada elemento del array. Si alguno de los dos es falso devovlverá false.
     Utilizaré esta variable más adelante como una bandera para definir i la contrañse aes correcta.
@@ -47,8 +48,6 @@ function login() {
 
     //Se agrega un usaurio activo al local storage aprovechando el objeto que obtiene usuarioExistente
     localStorage.setItem("usuarioActivo", JSON.stringify(usuarioExistente))
-    console.log("Usuario encontrado:", usuarioExistente)
-    document.getElementById('nav-p-interna').classList.remove('hidden');
     
     //Si no encuentra errores entonces lleva a la pantalla interna:
     mostrar('p-interna')

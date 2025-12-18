@@ -20,7 +20,7 @@ function saludoHora() {
     document.getElementById("saludo-bienvenida").textContent = saludo
 }
 
-//Función para agregar el nombre del usuario que inicio sesión
+//ERROR EN ESTA FUNCIÓN
 function mostrarNickname() {
     //Obtenemos el objeto creado ya sea en el login o el register.
     const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"))

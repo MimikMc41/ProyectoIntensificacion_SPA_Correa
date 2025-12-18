@@ -21,7 +21,8 @@
     <!-- Encabezado (Casi no cambia entre página excepto la aparicion y desaparición de algunos botones)-->
     <header>
         <!-- Logo en el encabezado -->
-        <img src="./assets/logo-principal-header.png" alt="Logo" id="logo-header"  onclick="mostrar('pantalla-inicio')" />
+        <img src="./assets/logo-principal-header.png" alt="Logo" id="logo-header"
+            onclick="mostrar('pantalla-inicio')" />
         <!-- Botones y navegación -->
         <nav>
             <!-- Div con los botones disponibles solo en la página interna, ocultos por defecto -->
@@ -73,19 +74,20 @@
             <form id="form-registro">
                 <h1>Registrarse</h1>
                 <label for="username">Nombre y apellido</label>
-                <input id="username" type="text" placeholder="Tu nombre y apellido"/>
+                <input id="username" type="text" placeholder="Tu nombre y apellido" />
 
                 <label for="nickname">Nickname (Apodo)</label>
-                <input id="nickname" type="text" placeholder="Tu apodo online"/>
+                <input id="nickname" type="text" placeholder="Tu apodo online" />
 
-                <label for="password">Contraseña (Debe tener una longitud de más de 6 caracteres y debe incluir al menos una letra minúscula, una letra mayúscula, un número y un símbolo)</label>
-                <input id="password" type="password" placeholder="Escribe una contraseña"/>
+                <label for="password">Contraseña (Debe tener una longitud de más de 6 caracteres y debe incluir al menos
+                    una letra minúscula, una letra mayúscula, un número y un símbolo)</label>
+                <input id="password" type="password" placeholder="Escribe una contraseña" />
 
                 <label for="email">Correo electrónico</label>
-                <input id="email" type="email" placeholder="TuEmail@gmail.com"/>
+                <input id="email" type="email" placeholder="TuEmail@gmail.com" />
 
                 <div class="checkbox-container">
-                    <input id="policy-agreement" type="checkbox"/>
+                    <input id="policy-agreement" type="checkbox" />
                     <label for="policy-agreement">Acepto las políticas de privacidad y condiciones de uso.</label>
                 </div>
 
@@ -130,10 +132,14 @@
                 <h3 id="mensaje-bienvenida-complementario">¿Listo para empezar a cocinar?</h3>
             </div>
 
-            <!-- Este div alojaría la funcionalidad de la página -->
             <div id="contenido-PI">
-                <!-- El siguiente mensaje es temporal -->
-                <p>En blanco - Funcionalidad a ser definida por el profesor</p>
+                <form id="form-agregar-tarea">
+                    <label for="nombre-tarea">Escribe tu tarea aquí:</label>
+                    <input id="nombre-tarea" type="text" placeholder="Lavar los platos..." required/>
+                    <button type="submit">Agregar tarea</button>
+                </form>
+                <!-- Div para almacenar las tareas -->
+                <div id="contenedor-tareas"></div>
             </div>
         </section>
 
@@ -160,6 +166,7 @@
     <script type="module" src="./js/login.js"></script>
     <script type="module" src="./js/p-interna.js"></script>
     <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="./js/tareas.js"></script>
 </body>
 
 </html>

@@ -62,7 +62,10 @@ function register() {
 
     //Si el array esta vacío (no hay errores) entonces...
     //Crea un obejto para gaurdar el usuario con los atributos de este.
-    const user = {username, nickname, password, email};
+    const user = {username, nickname, password, email, 
+        tareas: [], 
+        tareasCompletadas: [],
+    };
 
     //Se añade el usuario nuevo al array de usuarios.
     usuarios.push(user);
